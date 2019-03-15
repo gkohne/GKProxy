@@ -4,9 +4,11 @@ using Repeater;
 
 namespace GKProxy
 {
-    public partial class Form1 : Form
+    public partial class FormGKProxy : Form
     {
-        public Form1()
+        MyProxy myProxy = new MyProxy();
+
+        public FormGKProxy()
         {
             InitializeComponent();
         }
@@ -15,6 +17,16 @@ namespace GKProxy
         {
             FormRepeater repeater = new FormRepeater();
             repeater.Show();
+        }
+
+        private void buttonProxy_Click(object sender, EventArgs e)
+        {
+            myProxy.Get();
+        }
+
+        private void FormGKProxy_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

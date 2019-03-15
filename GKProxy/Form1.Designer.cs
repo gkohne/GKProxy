@@ -1,6 +1,6 @@
 ﻿namespace GKProxy
 {
-    partial class Form1
+    partial class FormGKProxy
     {
         /// <summary>
         /// Required designer variable.
@@ -29,26 +29,39 @@
         private void InitializeComponent()
         {
             this.buttonRepeater = new System.Windows.Forms.Button();
+            this.buttonProxy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonRepeater
             // 
             this.buttonRepeater.Location = new System.Drawing.Point(13, 13);
             this.buttonRepeater.Name = "buttonRepeater";
-            this.buttonRepeater.Size = new System.Drawing.Size(75, 23);
+            this.buttonRepeater.Size = new System.Drawing.Size(160, 101);
             this.buttonRepeater.TabIndex = 0;
             this.buttonRepeater.Text = "Repeater";
             this.buttonRepeater.UseVisualStyleBackColor = true;
             this.buttonRepeater.Click += new System.EventHandler(this.buttonRepeater_Click);
             // 
-            // Form1
+            // buttonProxy
+            // 
+            this.buttonProxy.Location = new System.Drawing.Point(13, 129);
+            this.buttonProxy.Name = "buttonProxy";
+            this.buttonProxy.Size = new System.Drawing.Size(160, 83);
+            this.buttonProxy.TabIndex = 1;
+            this.buttonProxy.Text = "Proxy";
+            this.buttonProxy.UseVisualStyleBackColor = true;
+            this.buttonProxy.Click += new System.EventHandler(this.buttonProxy_Click);
+            // 
+            // FormGKProxy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonProxy);
             this.Controls.Add(this.buttonRepeater);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FormGKProxy";
+            this.Text = "GKProxy";
+            this.Load += new System.EventHandler(this.FormGKProxy_Load);
             this.ResumeLayout(false);
 
         }
@@ -56,6 +69,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonRepeater;
+        private System.Windows.Forms.Button buttonProxy;
     }
 }
 
