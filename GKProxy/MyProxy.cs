@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -47,7 +48,7 @@ namespace GKProxy
 
         public async Task OnRequest(object sender, SessionEventArgs e)
         {
-            list.Add(e.WebSession.Request.ToString());
+            list.Add("Request : " + e.WebSession.Request.ToString());
             UpdateTextbox();
             //e.WebSession.Request.Headers.AddHeader("Ab", "Moo");
 
@@ -66,7 +67,7 @@ namespace GKProxy
 
         public async Task OnResponse(object sender, SessionEventArgs e)
         {
-            list.Add(e.WebSession.Response.ToString());
+            list.Add("Responce : " + e.WebSession.Response.ToString());
             UpdateTextbox();
         }
 
@@ -102,14 +103,14 @@ namespace GKProxy
 
         void UpdateTextbox()
         {
-            StringBuilder builder = new StringBuilder();
-            foreach (string item in list)
-            {
-                builder.Append(item.Substring(0)).AppendLine();
-            }
+            //StringBuilder builder = new StringBuilder();
+            //foreach (string item in list)
+            //{
+            //    builder.Append(item.Substring(0)).AppendLine();
+            //}
 
-            proxyOutput.textBoxOutput.Text = builder.ToString();
-
+            proxyOutput.listBoxOutput.DataSource = null;
+            proxyOutput.listBoxOutput.DataSource = list;
             proxyOutput.labelCountvalue.Text = list.Count.ToString();
 
         }

@@ -30,7 +30,7 @@
         {
             this.labelCountvalue = new System.Windows.Forms.Label();
             this.labelCount = new System.Windows.Forms.Label();
-            this.textBoxOutput = new System.Windows.Forms.TextBox();
+            this.listBoxOutput = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // labelCountvalue
@@ -50,24 +50,23 @@
             this.labelCount.TabIndex = 4;
             this.labelCount.Text = "Count : ";
             // 
-            // textBoxOutput
+            // listBoxOutput
             // 
-            this.textBoxOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listBoxOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxOutput.Location = new System.Drawing.Point(13, 25);
-            this.textBoxOutput.Multiline = true;
-            this.textBoxOutput.Name = "textBoxOutput";
-            this.textBoxOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxOutput.Size = new System.Drawing.Size(827, 419);
-            this.textBoxOutput.TabIndex = 6;
+            this.listBoxOutput.FormattingEnabled = true;
+            this.listBoxOutput.Location = new System.Drawing.Point(15, 39);
+            this.listBoxOutput.Name = "listBoxOutput";
+            this.listBoxOutput.Size = new System.Drawing.Size(825, 407);
+            this.listBoxOutput.TabIndex = 6;
             // 
             // ProxyOutput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(852, 456);
-            this.Controls.Add(this.textBoxOutput);
+            this.Controls.Add(this.listBoxOutput);
             this.Controls.Add(this.labelCountvalue);
             this.Controls.Add(this.labelCount);
             this.Name = "ProxyOutput";
@@ -81,6 +80,6 @@
 
         public System.Windows.Forms.Label labelCountvalue;
         private System.Windows.Forms.Label labelCount;
-        public System.Windows.Forms.TextBox textBoxOutput;
+        public System.Windows.Forms.ListBox listBoxOutput;
     }
 }
