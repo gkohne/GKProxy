@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using Repeater;
 
@@ -6,8 +7,6 @@ namespace GKProxy
 {
     public partial class FormGKProxy : Form
     {
-        MyProxy myProxy = new MyProxy();
-
         public FormGKProxy()
         {
             InitializeComponent();
@@ -21,7 +20,8 @@ namespace GKProxy
 
         private void buttonProxy_Click(object sender, EventArgs e)
         {
-            myProxy.Get();
+           ProxyOutput proxyOutput = new ProxyOutput();
+           proxyOutput.Show();
         }
 
         private void FormGKProxy_Load(object sender, EventArgs e)

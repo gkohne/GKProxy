@@ -31,6 +31,7 @@
             this.labelCountvalue = new System.Windows.Forms.Label();
             this.labelCount = new System.Windows.Forms.Label();
             this.listBoxOutput = new System.Windows.Forms.ListBox();
+            this.backgroundWorkerUpdateProxyOutput = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // labelCountvalue
@@ -56,10 +57,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxOutput.FormattingEnabled = true;
-            this.listBoxOutput.Location = new System.Drawing.Point(15, 39);
+            this.listBoxOutput.Location = new System.Drawing.Point(15, 26);
             this.listBoxOutput.Name = "listBoxOutput";
-            this.listBoxOutput.Size = new System.Drawing.Size(825, 407);
+            this.listBoxOutput.Size = new System.Drawing.Size(825, 420);
             this.listBoxOutput.TabIndex = 6;
+            // 
+            // backgroundWorkerUpdateProxyOutput
+            // 
+            this.backgroundWorkerUpdateProxyOutput.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerUpdateProxyOutput_DoWork);
             // 
             // ProxyOutput
             // 
@@ -71,6 +76,7 @@
             this.Controls.Add(this.labelCount);
             this.Name = "ProxyOutput";
             this.Text = "ProxyOutput";
+            this.Load += new System.EventHandler(this.ProxyOutput_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,5 +87,6 @@
         public System.Windows.Forms.Label labelCountvalue;
         private System.Windows.Forms.Label labelCount;
         public System.Windows.Forms.ListBox listBoxOutput;
+        public System.ComponentModel.BackgroundWorker backgroundWorkerUpdateProxyOutput;
     }
 }

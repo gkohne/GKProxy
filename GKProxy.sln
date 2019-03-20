@@ -11,28 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repeater", "Repeater\Repeat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Search", "Search\Search.csproj", "{2C6616E9-DA4E-4CD0-A5DA-DF73553C4887}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{2E9D5F3E-BFE5-4E38-8751-C87D29927B98}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FiddlerCore", "FiddlerCore", "{37429C5B-E9A8-48CE-8FB5-FB6B79348554}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Desktop\FiddlerCoreAPI\BasicFormatsForCore.dll = ..\..\..\Desktop\FiddlerCoreAPI\BasicFormatsForCore.dll
-		..\..\..\Desktop\FiddlerCoreAPI\BasicFormatsForCore.pdb = ..\..\..\Desktop\FiddlerCoreAPI\BasicFormatsForCore.pdb
-		..\..\..\Desktop\FiddlerCoreAPI\BCMakeCert.dll = ..\..\..\Desktop\FiddlerCoreAPI\BCMakeCert.dll
-		..\..\..\Desktop\FiddlerCoreAPI\CertMaker.dll = ..\..\..\Desktop\FiddlerCoreAPI\CertMaker.dll
-		..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore4.chm = ..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore4.chm
-		..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore4.dll = ..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore4.dll
-		..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore4.pdb = ..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore4.pdb
-		..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore4.XML = ..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore4.XML
-		..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore45.dll = ..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore45.dll
-		..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore45.pdb = ..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore45.pdb
-		..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore45.XML = ..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore45.XML
-		..\..\..\Desktop\FiddlerCoreAPI\LicenseForFreeAndInternalusageFiddlerCore.txt = ..\..\..\Desktop\FiddlerCoreAPI\LicenseForFreeAndInternalusageFiddlerCore.txt
-		..\..\..\Desktop\FiddlerCoreAPI\makecert.exe = ..\..\..\Desktop\FiddlerCoreAPI\makecert.exe
-		..\..\..\Desktop\FiddlerCoreAPI\notices.txt = ..\..\..\Desktop\FiddlerCoreAPI\notices.txt
-		..\..\..\Desktop\FiddlerCoreAPI\Telerik.NetworkConnections.dll = ..\..\..\Desktop\FiddlerCoreAPI\Telerik.NetworkConnections.dll
-		..\..\..\Desktop\FiddlerCoreAPI\Telerik.NetworkConnections.Windows.dll = ..\..\..\Desktop\FiddlerCoreAPI\Telerik.NetworkConnections.Windows.dll
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,7 +36,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F0272CC6-1C3E-4ECD-9274-FD4E876A09A6} = {D244901A-7BD5-4755-9BBE-F2248FA867C9}
 		{2C6616E9-DA4E-4CD0-A5DA-DF73553C4887} = {D244901A-7BD5-4755-9BBE-F2248FA867C9}
-		{37429C5B-E9A8-48CE-8FB5-FB6B79348554} = {2E9D5F3E-BFE5-4E38-8751-C87D29927B98}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8BA1A7AF-270F-4C15-8A3F-8C5D0ABF2BB8}
