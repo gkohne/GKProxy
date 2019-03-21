@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repeater", "Repeater\Repeat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Search", "Search\Search.csproj", "{2C6616E9-DA4E-4CD0-A5DA-DF73553C4887}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProxy", "MyProxy\MyProxy.csproj", "{CBD0BD79-E16B-4AFA-B3BB-AA2EEE33C3E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{2C6616E9-DA4E-4CD0-A5DA-DF73553C4887}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C6616E9-DA4E-4CD0-A5DA-DF73553C4887}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C6616E9-DA4E-4CD0-A5DA-DF73553C4887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBD0BD79-E16B-4AFA-B3BB-AA2EEE33C3E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBD0BD79-E16B-4AFA-B3BB-AA2EEE33C3E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBD0BD79-E16B-4AFA-B3BB-AA2EEE33C3E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBD0BD79-E16B-4AFA-B3BB-AA2EEE33C3E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F0272CC6-1C3E-4ECD-9274-FD4E876A09A6} = {D244901A-7BD5-4755-9BBE-F2248FA867C9}
 		{2C6616E9-DA4E-4CD0-A5DA-DF73553C4887} = {D244901A-7BD5-4755-9BBE-F2248FA867C9}
+		{CBD0BD79-E16B-4AFA-B3BB-AA2EEE33C3E1} = {D244901A-7BD5-4755-9BBE-F2248FA867C9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8BA1A7AF-270F-4C15-8A3F-8C5D0ABF2BB8}

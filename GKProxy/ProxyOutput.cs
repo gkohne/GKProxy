@@ -2,12 +2,14 @@
 using System.ComponentModel;
 using System.Threading;
 using System.Windows.Forms;
+using MyProxy;
 
 namespace GKProxy
 {
     public partial class ProxyOutput : Form
     {
-        BackgroundWorker Worker = new BackgroundWorker();
+        private BackgroundWorker Worker = new BackgroundWorker();
+
         public ProxyOutput()
         {
             InitializeComponent();
@@ -15,42 +17,43 @@ namespace GKProxy
 
         private void ProxyOutput_Load(object sender, EventArgs e)
         {
-            MyProxy.Start();
+            TheProxy.Start();
 
             Worker.DoWork += backgroundWorkerUpdateProxyOutput_DoWork;
             Worker.WorkerSupportsCancellation = true;
             Worker.RunWorkerAsync();
         }
 
-        private bool closePending;
-
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (Worker.IsBusy)
             {
                 Worker.CancelAsync();
+                TheProxy.Stop();
+                TheProxy._list.Clear();
                 return;
             }
             base.OnFormClosing(e);
         }
 
-
         private void backgroundWorkerUpdateProxyOutput_DoWork(object sender, DoWorkEventArgs e)
         {
             while (!Worker.CancellationPending)
             {
-                if (MyProxy._list.Count > 0)
+                if (TheProxy._list.Count > 0)
                 {
                     if (!IsHandleCreated)
                     {
                         CreateHandle();
                     }
 
-                    void Actionlabel() => labelCountvalue.Text = MyProxy._list.Count.ToString();
+                    void Actionlabel() => labelCountvalue.Text = TheProxy._list.Count.ToString();
                     labelCountvalue.Invoke((Action) Actionlabel);
 
+                    listBoxOutput.DataSource = null;
+
                     void Actionlistbox() =>
-                    listBoxOutput.DataSource = MyProxy._list;
+                    listBoxOutput.DataSource = TheProxy._list;
                     listBoxOutput.Invoke((Action) Actionlistbox);
                 }
                 Thread.Sleep(1000);

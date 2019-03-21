@@ -62,7 +62,7 @@
             this.listBoxOutput.FormattingEnabled = true;
             this.listBoxOutput.Location = new System.Drawing.Point(15, 52);
             this.listBoxOutput.Name = "listBoxOutput";
-            this.listBoxOutput.Size = new System.Drawing.Size(393, 394);
+            this.listBoxOutput.Size = new System.Drawing.Size(393, 433);
             this.listBoxOutput.TabIndex = 6;
             this.listBoxOutput.SelectedIndexChanged += new System.EventHandler(this.listBoxOutput_SelectedIndexChanged);
             // 
@@ -78,7 +78,7 @@
             this.textBoxSelectionOutput.Location = new System.Drawing.Point(414, 52);
             this.textBoxSelectionOutput.Multiline = true;
             this.textBoxSelectionOutput.Name = "textBoxSelectionOutput";
-            this.textBoxSelectionOutput.Size = new System.Drawing.Size(426, 394);
+            this.textBoxSelectionOutput.Size = new System.Drawing.Size(527, 433);
             this.textBoxSelectionOutput.TabIndex = 7;
             // 
             // labelHistory
@@ -103,7 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 456);
+            this.ClientSize = new System.Drawing.Size(953, 495);
             this.Controls.Add(this.labelSelectedItem);
             this.Controls.Add(this.labelHistory);
             this.Controls.Add(this.textBoxSelectionOutput);
