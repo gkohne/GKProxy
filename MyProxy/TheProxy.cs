@@ -14,7 +14,7 @@ namespace MyProxy
     {
         // ReSharper disable once InconsistentNaming
         public static List<string> _list = new List<string>();
-        static ProxyServer proxyServer = new ProxyServer();
+        static ProxyServer proxyServer = new ProxyServer(true,true,true);
 
         public static void Start()
         {
@@ -22,17 +22,16 @@ namespace MyProxy
             string certPassword = "Password";
 
             proxyServer.CertificateManager.PfxPassword = certPassword;
-
-            proxyServer.ForwardToUpstreamGateway = true;
-            proxyServer.CertificateManager.SaveFakeCertificates = true;
+            proxyServer.CertificateManager.EnsureRootCertificate();
+            proxyServer.CertificateManager.TrustRootCertificate(true);
+            proxyServer.CertificateManager.TrustRootCertificateAsAdmin(true);
 
             if (!File.Exists(certName))
             {
                 proxyServer.CertificateManager.CreateRootCertificate(true);
             }
 
-            proxyServer.CertificateManager.RootCertificate = new X509Certificate2(certName, certPassword);
-            proxyServer.CertificateManager.TrustRootCertificate(true);
+            proxyServer.CertificateManager.RootCertificate = new X509Certificate2(certName, certPassword, X509KeyStorageFlags.Exportable);
 
             proxyServer.BeforeRequest += OnRequest;
             proxyServer.BeforeResponse += OnResponse;
@@ -94,7 +93,7 @@ namespace MyProxy
 
         private static Task OnBeforeTunnelConnectRequest(object sender, TunnelConnectSessionEventArgs e)
         {
-            _list.Add("Tunnel to: " + e.HttpClient.Request.RequestUri.Host);
+            _list.Add("Tunnel to : " + e.HttpClient.Request.RequestUri.Host);
 
             return Task.FromResult(false);
         }

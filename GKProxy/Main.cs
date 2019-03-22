@@ -28,5 +28,10 @@ namespace GKProxy
         {
 
         }
+
+        private void buttonSQL_Click(object sender, EventArgs e)
+        {
+            SQL.Test();
+        }
     }
 }

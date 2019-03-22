@@ -52,8 +52,8 @@ namespace GKProxy
 
                     listBoxOutput.DataSource = null;
 
-                    void Actionlistbox() =>
-                    listBoxOutput.DataSource = TheProxy._list;
+                    void Actionlistbox() => 
+                    listBoxOutput.DataSource = SQL.ReadData("Data");
                     listBoxOutput.Invoke((Action) Actionlistbox);
                 }
                 Thread.Sleep(1000);
@@ -64,5 +64,6 @@ namespace GKProxy
         {
             textBoxSelectionOutput.Text = listBoxOutput.GetItemText(listBoxOutput.SelectedItem);
         }
+
     }
 }
