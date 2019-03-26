@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows.Forms;
 using Repeater;
 
@@ -27,11 +26,6 @@ namespace GKProxy
         private void FormGKProxy_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void buttonSQL_Click(object sender, EventArgs e)
-        {
-            SQL.Test();
         }
     }
 }
