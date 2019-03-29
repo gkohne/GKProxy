@@ -13,7 +13,8 @@ namespace GKProxy
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormGKProxy());
+            //Application.Run(new FormGKProxy());
+            Application.Run(new ProxyOutput());
         }
     }
 }

@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
-using MyProxy;
 
 namespace GKProxy
 {
-    public static class SQL
+    public static class Sql
     {
         private static string DBName = "database.db";
         private static string TableName = "Data";
+        private static string ColumnName = "Traffic";
 
-        static SQLiteConnection conn = new SQLiteConnection("Data Source=" + DBName + "; Version = 3; Compress = True; ");
+        private static SQLiteConnection conn = new SQLiteConnection("Data Source=" + DBName + "; Version = 3; Compress = True; ");
 
         public static void CreateDatabase()
         {
@@ -30,10 +29,7 @@ namespace GKProxy
 
         public static List<string> ReadData(string table)
         {
-            List<string> ReadDatalist = new List<string>();
-
-            SQLiteDataReader sqlite_datareader = null;
-            SQLiteCommand sqlite_cmd = null;
+            List<string> readDatalist = new List<string>();
 
             try
             {
@@ -45,42 +41,40 @@ namespace GKProxy
                 conn.Open();
             }
 
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = "SELECT * FROM " + table;
+            SQLiteCommand sqliteCmd = conn.CreateCommand();
+            sqliteCmd.CommandText = "SELECT * FROM " + table;
 
-            sqlite_datareader = sqlite_cmd.ExecuteReader();
-            while (sqlite_datareader.Read())
+            var sqliteDatareader = sqliteCmd.ExecuteReader();
+            while (sqliteDatareader.Read())
             {
-                string myreader = sqlite_datareader.GetString(0);
+                string myreader = sqliteDatareader.GetString(0);
 
                 if (myreader != null)
                 {
-                    ReadDatalist.Add(myreader);
+                    readDatalist.Add(myreader);
                 }
             }
             conn.Close();
-            return ReadDatalist;
+            return readDatalist;
         }
 
-        public static void ListToDB(List<string> list)
+        public static void InsertData(string data)
         {
-            if (list != null || list.Count != 0)
-            {
-                List<string> newList = new List<string>(list);
+            SQLiteConnection connInsert = new SQLiteConnection("Data Source=" + DBName + "; Version = 3; Compress = True; ");
+            connInsert.Open();
+            SQLiteCommand sqliteCmd = connInsert.CreateCommand();
+            sqliteCmd.CommandText = "INSERT INTO " + TableName + "(" + ColumnName + ") VALUES('" + data.Truncate(255) + "'); ";
 
-                foreach (string item in newList)
-                {
-                    InsertData(TableName, item);
-                }
-            }
+            sqliteCmd.ExecuteNonQuery();
+            connInsert.Close();
         }
 
         private static void SetupDatabase()
         {
-            SQLiteConnection Newdb_conn = new SQLiteConnection("Data Source=" + DBName + "; Version = 3; New = True; Compress = True; ");
-            Newdb_conn.Open();
+            SQLiteConnection newdbConn = new SQLiteConnection("Data Source=" + DBName + "; Version = 3; New = True; Compress = True; ");
+            newdbConn.Open();
             CreateTable();
-            Newdb_conn.Close();
+            newdbConn.Close();
         }
 
         private static void DeleteDatabase()
@@ -91,30 +85,28 @@ namespace GKProxy
             }
             else
             {
-                MessageBox.Show("Database(" + DBName + ") to be removed not found ");
+                MessageBox.Show(@"Database(" + DBName + ") to be removed not found ");
             }
         }
 
         private static void CreateTable()
         {
             conn.Open();
-            SQLiteCommand sqlite_cmd = conn.CreateCommand();
+            SQLiteCommand sqliteCmd = conn.CreateCommand();
 
-            sqlite_cmd.CommandText = "CREATE TABLE  IF NOT EXISTS " + TableName + "(Traffic VARCHAR(20))";
-            sqlite_cmd.ExecuteNonQuery();
+            sqliteCmd.CommandText = "CREATE TABLE  IF NOT EXISTS " + TableName + "(" + ColumnName + " VARCHAR(255))";
+            sqliteCmd.ExecuteNonQuery();
             conn.Close();
         }
 
-        private static void InsertData(string table,string data )
-        {
-            SQLiteConnection connInsert = new SQLiteConnection("Data Source=" + DBName + "; Version = 3; Compress = True; ");
-            connInsert.Open();
-            SQLiteCommand sqlite_cmd = connInsert.CreateCommand();
-            sqlite_cmd.CommandText = "INSERT INTO " + table + "(Traffic) VALUES('" + data + "'); ";
-            sqlite_cmd.ExecuteNonQuery();
-            connInsert.Close();
-        }
+    }
+}
 
-
+public static class StringExt
+{
+    public static string Truncate(this string value, int maxLength)
+    {
+        if (string.IsNullOrEmpty(value)) return value;
+        return value.Length <= maxLength ? value : value.Substring(0, maxLength);
     }
 }
